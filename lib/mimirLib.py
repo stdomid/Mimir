@@ -1,7 +1,10 @@
 from requests import get
 import socket
+import dns.resolver
+
 
 class infoG: 
+    
     def getWhois(url) -> object:
         try:
             outReq = get(f"http://ipwho.is/{url}")
@@ -19,7 +22,7 @@ class infoG:
         except socket.herror:
             return "No domain name found for the given IP address."
 
-    def port_scan(target_host, target_ports) -> object:
+    def portScan(target_host, target_ports) -> object:
         for port in target_ports:
             try:
                 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -32,6 +35,16 @@ class infoG:
                 sock.close()
             except socket.error:
                 print(f"Could not connect to host: {target_host}")
+    
+    def dnsLookup(url) -> object:
+        if url != "":
+            result2 = dns.resolver.resolve(url,"NS")
+            for i in result2:
+                print("NS Record : ",i.to_text())
+        else:
+            print("Please Enter Url !!")
+
+
     
     
     
