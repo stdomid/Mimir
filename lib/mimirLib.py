@@ -1,4 +1,5 @@
 from requests import get
+from colorama import Fore
 import socket
 import dns.resolver
 
@@ -43,6 +44,17 @@ class infoG:
                 print("NS Record : ",i.to_text())
         else:
             print("Please Enter Url !!")
+            
+    def robotsScan(url) -> object:
+        with open("payloads/robotsPayloads.txt","r") as file:
+            payloads = file.read().replace('\n',"").replace(" ","").replace("'","").split(",")
+            for pay in payloads:
+                req = get("https://"+url+"/"+pay)
+                if req.status_code == 200:
+                    print(Fore.GREEN+"[+] http://"+url+"/"+pay)
+                else:
+                    print(Fore.RED+"[-] http://"+url+"/"+pay)
+
 
 
     
