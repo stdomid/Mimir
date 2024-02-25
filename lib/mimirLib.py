@@ -2,20 +2,17 @@ from requests import get
 from colorama import Fore
 import socket
 import dns.resolver
-
+import whois
 
 class infoG: 
-    
-    def getWhois(url) -> object:
+
+    def getWhoisInfo(url) -> object:
         try:
-            outReq = get(f"http://ipwho.is/{url}")
-            if outReq.status_code == 200:
-                return outReq.text
-            else:
-                return "Check your internet connction!!"
-        except Exception:
-            return "Check your internet connction!!"
-        
+            w = whois.whois(url)
+            print(w)
+        except whois.parser.PywhoisError as e:
+            print(f"Error retrieving WHOIS information: {e}")
+
     def getDomainName(ip_address) -> object:
         try:
             domain_name = socket.gethostbyaddr(ip_address)[0]
