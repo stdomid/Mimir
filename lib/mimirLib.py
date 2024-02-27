@@ -16,9 +16,9 @@ class infoG:
     def getDomainName(ip_address) -> object:
         try:
             domain_name = socket.gethostbyaddr(ip_address)[0]
-            return domain_name
+            print(domain_name)
         except socket.herror:
-            return "No domain name found for the given IP address."
+            print("No domain name found for the given IP address.")
 
     def portScan(target_host) -> object:
         for port in [21,22,23,25,53,80,443,3070,5060,135,139,1433,1521,1723,1900,2302,3389,3306,4000,4444,5000,5555,5900,6667,6697,8000,8081,9100,9090,5900,445,5985,598]:
