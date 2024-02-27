@@ -25,7 +25,7 @@ menu = Fore.RED+"""
 [4] - Scan Important Url 
 [5] - Port Scan
 [6] - DNS Lookpu
-[7] - Exit
+[Ctrl + z] - Exit
 """
 
 
@@ -41,7 +41,7 @@ def mimirMain(argument):
 		case 2:
 			clearScreen()
 			print(banner)
-			inp = input("Enter url :")
+			inp = input("Enter IP Address :")
 			infoG.getDomainName(inp)
 			input("")
 		case 3:
