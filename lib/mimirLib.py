@@ -33,6 +33,8 @@ class infoG:
                 sock.close()
             except socket.error:
                 print(f"Could not connect to host: {target_host}")
+                break
+            
     
     def dnsLookup(url) -> object:
         if url != "":
