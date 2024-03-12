@@ -11,6 +11,7 @@ banner =Fore.WHITE+"""
 ██║░╚═╝░██║██║██║░╚═╝░██║██║██║░░██║
 ╚═╝░░░░░╚═╝╚═╝╚═╝░░░░░╚═╝╚═╝╚═╝░░╚═╝
 Mímisbrunnr
+OmidRanjbar(Zed)
 """ 
 infoG = mimirLib.infoG
 
